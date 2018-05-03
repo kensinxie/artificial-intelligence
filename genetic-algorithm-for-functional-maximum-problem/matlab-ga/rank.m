@@ -39,11 +39,14 @@ for i=1:population_size
         % 此时 fitness_value(i) 的适应度在[i,population_size]上最小
         
         % 交换 population(i) 和 population(min_index) 的染色体串
-        for k = 1:chromosome_size
-            temp_chromosome(k) = population(i,k);
-            population(i,k) = population(min_index,k);
-            population(min_index,k) = temp_chromosome(k);
-        end
+        %for k = 1:chromosome_size
+         %   temp_chromosome(k) = population(i,k);
+          %  population(i,k) = population(min_index,k);
+           % population(min_index,k) = temp_chromosome(k);
+        %end 可以使用以下三行语句代替，更精简
+        temp_chromosome=population(i,:);
+        population(i,:)=population(min_index,:);
+        population(min_index,:)=temp_chromosome;
     end
 end
 
